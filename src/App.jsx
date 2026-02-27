@@ -9,7 +9,7 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             <div className="flex-shrink-0 flex items-center gap-3">
-              <img src="/images/logo.png" alt="Dr. Kamlesh Talesra Logo" className="h-12 w-auto" />
+              <img src={`${import.meta.env.BASE_URL}images/logo.png`} alt="Dr. Kamlesh Talesra Logo" className="h-12 w-auto" />
               <div>
                 <h1 className="text-xl font-bold text-brand-blue leading-tight">Dr. Kamlesh Talesra</h1>
                 <p className="text-sm text-gray-500">Interventional Radiologist</p>
@@ -40,7 +40,7 @@ function App() {
         <section id="home" className="relative h-[80vh] flex items-center">
           <div className="absolute inset-0">
             <img
-              src="/images/hero.png"
+              src={`${import.meta.env.BASE_URL}images/hero.png`}
               alt="Interventional Radiology Clinic"
               className="w-full h-full object-cover"
             />
@@ -81,7 +81,7 @@ function App() {
             <div className="flex flex-col md:flex-row items-center gap-16">
               <div className="md:w-1/2">
                 <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                  <img src="/images/portrait.png" alt="Dr. Kamlesh Talesra" className="w-full h-auto object-cover" />
+                  <img src={`${import.meta.env.BASE_URL}images/portrait.png`} alt="Dr. Kamlesh Talesra" className="w-full h-auto object-cover" />
                   <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-brand-blue to-transparent p-6 text-white text-center">
                     <h3 className="text-2xl font-bold">Dr. Kamlesh Talesra</h3>
                     <p className="text-brand-teal font-medium">Bansal Hospital, Bhopal</p>
