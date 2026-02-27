@@ -28,9 +28,9 @@ The website is designed as a fast, modern, and SEO-optimized web application.
 
 ---
 
-## 3. Step-by-Step Deployment Guide (GitHub Pages)
+## 3. Step-by-Step Deployment Guide (GitHub Pages via Actions)
 
-To host the website for free and connect a custom domain, follow these steps meticulously:
+To host the React website for free and connect a custom domain, we use GitHub Actions to automatically build and deploy it:
 
 ### Step 3.1: Initialize and Push to GitHub
 If you haven't yet created a GitHub repository or published the code:
@@ -40,26 +40,26 @@ If you haven't yet created a GitHub repository or published the code:
    - Click the **+** icon in the top right corner and select **New repository**.
    - Name the repository (e.g., `dr-kamlesh-talesra-website`).
    - Choose **Public** (required for free GitHub Pages).
-   - Do NOT initialize with a README (since we will push existing files).
+   - Do NOT initialize with a README.
    - Click **Create repository**.
 3. **Push the Local Code (via Terminal / Command Prompt):**
    Open your terminal in the website directory (`Desktop/Kamlesh`) and run:
    ```bash
    git init
    git add .
-   git commit -m "Initial commit for website"
+   git commit -m "Initial commit for React website"
    git branch -M main
    git remote add origin https://github.com/[YOUR-USERNAME]/[YOUR-REPO-NAME].git
    git push -u origin main
    ```
 
-### Step 3.2: Enable GitHub Pages
+### Step 3.2: Enable GitHub Pages & Actions
 1. Go to your repository on GitHub.
 2. Click on **Settings** (the gear icon).
 3. On the left sidebar, click on **Pages**.
-4. Under **Build and deployment**, select **Deploy from a branch**.
-5. Under **Branch**, select `main` (or `master`) and keep the folder as `/ (root)`. Click **Save**.
-6. Wait 1-2 minutes, refresh the page, and GitHub will display your live URL (e.g., `https://[username].github.io/dr-kamlesh-talesra-website`).
+4. Under **Build and deployment**, change the Source to **GitHub Actions**.
+5. The `.github/workflows/deploy.yml` file included in this repository will automatically be detected and trigger a build/deploy process every time you push changes to the `main` branch.
+6. Wait 2-3 minutes, refresh the page, and GitHub will display your live URL (e.g., `https://[username].github.io/dr-kamlesh-[repo]`).
 
 ---
 
