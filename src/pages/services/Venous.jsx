@@ -28,7 +28,7 @@ const Venous = () => {
         <ServiceTemplate
             title="Venous Disorders (Varicose Veins)"
             summary="Laser therapy and advanced VenaSeal systems for quick, painless recovery from varicose veins and venous insufficiency."
-            imagePath="images/hero.png" // Placeholder
+            imagePath="images/services/venous.jpg"
             content={content}
             faqs={faqs}
         />

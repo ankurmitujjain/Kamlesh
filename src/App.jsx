@@ -1,5 +1,6 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 import Layout from './components/Layout';
 import Home from './pages/Home';
 import Patients from './pages/Patients';
@@ -13,20 +14,22 @@ import './App.css';
 
 function App() {
   return (
-    <BrowserRouter basename="/Kamlesh">
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="patients" element={<Patients />} />
-          <Route path="services/thyroid" element={<Thyroid />} />
-          <Route path="services/vascular" element={<Vascular />} />
-          <Route path="services/stroke" element={<Stroke />} />
-          <Route path="services/venous" element={<Venous />} />
-          <Route path="services/fibroid" element={<Fibroid />} />
-          <Route path="services/prostate" element={<Prostate />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <HelmetProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="patients" element={<Patients />} />
+            <Route path="services/thyroid" element={<Thyroid />} />
+            <Route path="services/vascular" element={<Vascular />} />
+            <Route path="services/stroke" element={<Stroke />} />
+            <Route path="services/venous" element={<Venous />} />
+            <Route path="services/fibroid" element={<Fibroid />} />
+            <Route path="services/prostate" element={<Prostate />} />
+          </Route>
+        </Routes>
+      </Router>
+    </HelmetProvider>
   );
 }
 

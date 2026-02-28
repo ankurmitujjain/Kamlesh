@@ -28,7 +28,7 @@ const Prostate = () => {
         <ServiceTemplate
             title="Prostate Artery Embolization"
             summary="Painless, outpatient relief for enlarged prostate (BPH) symptoms without the risks of traditional surgery."
-            imagePath="images/hero.png" // Placeholder
+            imagePath="images/services/prostate.png"
             content={content}
             faqs={faqs}
         />

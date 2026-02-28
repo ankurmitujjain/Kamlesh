@@ -28,7 +28,7 @@ const Fibroid = () => {
         <ServiceTemplate
             title="Uterine Fibroid Embolization"
             summary="Non-surgical preservation of the uterus, effectively treating heavy bleeding and pain caused by fibroids."
-            imagePath="images/hero.png" // Placeholder
+            imagePath="images/services/fibroid.png"
             content={content}
             faqs={faqs}
         />

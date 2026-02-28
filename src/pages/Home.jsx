@@ -1,86 +1,86 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import HeroSlider from '../components/HeroSlider';
+import SEO from '../components/SEO';
 
 const Home = () => {
     return (
         <>
-            {/* Hero Section */}
-            <section id="home" className="relative h-[80vh] flex items-center">
-                <div className="absolute inset-0">
-                    <img
-                        src={`${import.meta.env.BASE_URL}images/hero.png`}
-                        alt="Interventional Radiology Clinic"
-                        className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-brand-blue/60 mix-blend-multiply"></div>
-                    <div className="absolute inset-0 bg-gradient-to-t from-brand-light to-transparent opacity-90"></div>
-                </div>
+            <SEO
+                title="Dr. Kamlesh Talesra | Best Interventional Radiologist in Bhopal"
+                description="Get relief with Non-Surgical Treatment for Piles, Varicocele, Thyroid Nodules & Fibroids at Bansal Hospital Bhopal with Dr. Kamlesh Talesra."
+            />
 
-                <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-                    <div className="max-w-2xl">
-                        <span className="text-brand-teal font-semibold tracking-wider uppercase drop-shadow-md">Advanced Minimally Invasive Care</span>
-                        <h2 className="mt-2 text-4xl md:text-5xl font-bold text-brand-dark leading-tight drop-shadow-sm">
-                            Expert Interventional Radiology in Bhopal
-                        </h2>
-                        <p className="mt-4 text-xl text-gray-800 font-medium">
-                            Dr. Kamlesh Talesra delivers state-of-the-art treatments with 18+ years of expertise. Faster recovery, minimal risk, and precise care at Bansal Hospital.
-                        </p>
-                        <div className="mt-8 flex gap-4">
-                            <a
-                                href="https://wa.me/919406523513"
-                                className="bg-brand-teal text-brand-dark px-8 py-3 rounded-full font-bold hover:bg-white smooth-transition shadow-xl text-lg"
-                            >
-                                Consult on WhatsApp
-                            </a>
-                            <a
-                                href="#about"
-                                className="bg-white/80 text-brand-blue px-8 py-3 rounded-full font-bold hover:bg-white smooth-transition shadow-lg text-lg backdrop-blur-sm"
-                            >
-                                Learn More
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            <HeroSlider />
 
             {/* About Section */}
             <section id="about" className="py-20 bg-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex flex-col md:flex-row items-center gap-16">
-                        <div className="md:w-1/2">
-                            <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-white">
-                                <img src="https://bansalgroup-assets.s3.ap-south-1.amazonaws.com/PRD/Bansal_Hospital/2020/09/65-Photoroom-213x420.jpg" alt="Dr. Kamlesh Talesra" className="w-[80%] mx-auto h-auto object-contain" />
-                                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-brand-blue to-transparent p-6 text-white text-center">
+                        {/* Image & Map Column */}
+                        <div className="md:w-1/2 flex flex-col gap-6">
+                            <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-white border-4 border-brand-light">
+                                <img src={`${import.meta.env.BASE_URL}images/dr_kamlesh_cropped.jpg`} alt="Dr. Kamlesh Talesra" className="w-[80%] mx-auto h-auto object-contain rounded-t-3xl" />
+                                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-brand-blue via-brand-blue/90 to-transparent p-6 text-white text-center">
                                     <h3 className="text-2xl font-bold">Dr. Kamlesh Talesra</h3>
-                                    <p className="text-brand-teal font-medium">Bansal Hospital, Bhopal</p>
+                                    <p className="text-brand-teal font-medium">MBBS, MD (Radiodiagnosis)</p>
                                 </div>
                             </div>
+
+                            {/* Google Map Embed */}
+                            <div className="rounded-3xl overflow-hidden shadow-xl border-4 border-white h-64 relative group">
+                                <div className="absolute inset-0 bg-brand-blue/10 group-hover:bg-transparent smooth-transition pointer-events-none z-10"></div>
+                                <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3666.936054452136!2d77.41432457605929!3d23.209028710714798!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x397c42dfd0251781%3A0xe5427d11019d08e5!2sBansal%20Hospital%20Bhopal!5e0!3m2!1sen!2sin!4v1709021445037!5m2!1sen!2sin"
+                                    width="100%"
+                                    height="100%"
+                                    style={{ border: 0 }}
+                                    allowFullScreen=""
+                                    loading="lazy"
+                                    referrerPolicy="no-referrer-when-downgrade"
+                                    title="Dr Kamlesh Talesra Clinic Location"
+                                    className="w-full h-full"
+                                ></iframe>
+                            </div>
                         </div>
+
+                        {/* Text Content Column */}
                         <div className="md:w-1/2">
-                            <span className="text-brand-teal font-bold uppercase tracking-wide">About The Doctor</span>
-                            <h2 className="mt-2 text-3xl font-bold text-brand-blue">18+ Years of Medical Excellence</h2>
-                            <p className="mt-4 text-gray-600 leading-relaxed text-lg">
-                                Dr. Kamlesh Talesra is a renowned Interventional Radiologist currently practicing as a Consultant (Radiology) at Bansal Hospital, Bhopal. With a passion for minimal invasive procedures, he has transformed patient care by offering alternatives to traditional open surgeries.
+                            <span className="text-brand-teal font-bold uppercase tracking-widest text-sm drop-shadow-sm">About Us</span>
+                            <h2 className="mt-3 text-3xl md:text-4xl font-extrabold text-brand-blue leading-tight">Providing Expert Care Since 2004</h2>
+                            <p className="mt-5 text-gray-600 leading-relaxed text-lg">
+                                Dr. Kamlesh Talesra is a renowned Interventional Radiologist currently practicing as a Consultant at Bansal Hospital, Bhopal. With a passion for minimal invasive procedures, he has transformed patient care by offering highly effective, safer alternatives to traditional open surgeries.
                             </p>
-                            <div className="mt-8 space-y-4">
+                            <div className="mt-8 space-y-5 bg-brand-light/40 py-6 px-8 rounded-3xl border border-gray-100">
                                 <div className="flex items-start">
-                                    <div className="flex-shrink-0 h-6 w-6 rounded-full bg-brand-teal flex items-center justify-center mt-1">
-                                        <span className="text-white text-xs">✓</span>
+                                    <div className="flex-shrink-0 h-6 w-6 rounded-full bg-brand-teal flex items-center justify-center mt-1 shadow-sm">
+                                        <span className="text-brand-dark text-xs font-bold">✓</span>
                                     </div>
-                                    <p className="ml-3 text-gray-700"><strong>MBBS:</strong> Shyam Shah Medical College, Rewa</p>
+                                    <p className="ml-4 text-gray-700"><strong>MBBS:</strong> Shyam Shah Medical College, Rewa</p>
                                 </div>
                                 <div className="flex items-start">
-                                    <div className="flex-shrink-0 h-6 w-6 rounded-full bg-brand-teal flex items-center justify-center mt-1">
-                                        <span className="text-white text-xs">✓</span>
+                                    <div className="flex-shrink-0 h-6 w-6 rounded-full bg-brand-teal flex items-center justify-center mt-1 shadow-sm">
+                                        <span className="text-brand-dark text-xs font-bold">✓</span>
                                     </div>
-                                    <p className="ml-3 text-gray-700"><strong>MD (Radiodiagnosis):</strong> Gajaraj Raja Medical College, Gwalior</p>
+                                    <p className="ml-4 text-gray-700"><strong>MD (Radiodiagnosis):</strong> Gajaraj Raja Medical College, Gwalior</p>
                                 </div>
                                 <div className="flex items-start">
-                                    <div className="flex-shrink-0 h-6 w-6 rounded-full bg-brand-teal flex items-center justify-center mt-1">
-                                        <span className="text-white text-xs">✓</span>
+                                    <div className="flex-shrink-0 h-6 w-6 rounded-full bg-brand-teal flex items-center justify-center mt-1 shadow-sm">
+                                        <span className="text-brand-dark text-xs font-bold">✓</span>
                                     </div>
-                                    <p className="ml-3 text-gray-700">Member of ISVIR, CIRSE, and IRIA.</p>
+                                    <p className="ml-4 text-gray-700">Proud Member of ISVIR, CIRSE, and IRIA.</p>
                                 </div>
+                            </div>
+
+                            <div className="mt-10">
+                                <a
+                                    href="https://wa.me/919406523513"
+                                    target="_blank" rel="noopener noreferrer"
+                                    className="inline-flex items-center gap-2 bg-brand-blue text-white px-8 py-4 rounded-full font-bold hover:bg-brand-teal hover:text-brand-dark smooth-transition shadow-[0_10px_20px_rgba(10,37,64,0.15)] group"
+                                >
+                                    Book a Consultation
+                                    <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                                </a>
                             </div>
                         </div>
                     </div>

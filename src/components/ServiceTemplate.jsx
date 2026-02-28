@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import SEO from './SEO';
 
 const FAQItem = ({ question, answer }) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -29,6 +30,10 @@ const FAQItem = ({ question, answer }) => {
 const ServiceTemplate = ({ title, summary, imagePath, content, faqs }) => {
     return (
         <div className="py-12 bg-white">
+            <SEO
+                title={`${title} | Dr. Kamlesh Talesra Interventional Radiology`}
+                description={`Learn more about ${title} at Bansal Hospital. ${summary}`}
+            />
             {/* Banner */}
             <div className="bg-brand-blue py-16 relative overflow-hidden mb-16">
                 <div className="absolute inset-0 bg-brand-dark opacity-50 diagram-pattern"></div>

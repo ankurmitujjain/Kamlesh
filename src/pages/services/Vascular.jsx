@@ -28,7 +28,7 @@ const Vascular = () => {
         <ServiceTemplate
             title="Vascular Interventions"
             summary="Life-saving angioplasty and stenting to restore blood flow, prevent amputations, and manage peripheral vascular disease."
-            imagePath="images/hero.png" // Placeholder
+            imagePath="images/services/vascular.png"
             content={content}
             faqs={faqs}
         />

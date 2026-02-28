@@ -28,7 +28,7 @@ const Thyroid = () => {
         <ServiceTemplate
             title="Thyroid & Parathyroid Interventions"
             summary="Targeted microwave and radiofrequency ablation for nodules and adenomas, preserving healthy tissue without traditional surgery."
-            imagePath="images/hero.png" // Placeholder
+            imagePath="images/services/thyroid.jpg"
             content={content}
             faqs={faqs}
         />

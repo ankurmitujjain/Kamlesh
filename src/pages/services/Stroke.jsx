@@ -28,7 +28,7 @@ const Stroke = () => {
         <ServiceTemplate
             title="Stroke & Aneurysm Management"
             summary="Emergency mechanical thrombectomy for strokes and endovascular coiling for aneurysms to protect brain function."
-            imagePath="images/hero.png" // Placeholder
+            imagePath="images/services/stroke.jpg"
             content={content}
             faqs={faqs}
         />
