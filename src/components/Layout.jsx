@@ -14,63 +14,79 @@ const Layout = () => {
             {/* HEADER / NAVIGATION */}
             <header className="fixed w-full top-0 z-50 glass-panel shadow-sm">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex justify-between items-center h-20">
-                        {/* Logo */}
-                        <Link to="/" className="flex-shrink-0 flex items-center gap-3">
-                            <img src={`${import.meta.env.BASE_URL}images/logo.png`} alt="Dr. Kamlesh Talesra Logo" className="h-12 w-auto" />
+                    <div className="flex justify-between items-stretch py-2 lg:py-3">
+                        {/* Logo - Merged for both rows */}
+                        <Link to="/" className="flex-shrink-0 flex items-center gap-3 py-2">
+                            <img src={`${import.meta.env.BASE_URL}images/logo.png`} alt="Dr. Kamlesh Talesra Logo" className="h-14 lg:h-[72px] w-auto" />
                             <div>
-                                <h1 className="text-xl font-bold text-brand-blue leading-tight">Dr. Kamlesh Talesra</h1>
-                                <p className="text-sm text-gray-500 hidden sm:block">Interventional Radiologist</p>
+                                <h1 className="text-xl lg:text-2xl font-extrabold text-brand-blue leading-tight tracking-tight">Dr. Kamlesh Talesra</h1>
+                                <p className="text-sm text-gray-500 font-medium tracking-wide hidden sm:block">Interventional Radiologist</p>
                             </div>
                         </Link>
 
-                        {/* Navigation & Social Icons Container */}
-                        <div className="hidden lg:flex items-center space-x-2 xl:space-x-6">
-                            <nav className="flex space-x-4 xl:space-x-6 items-center relative text-sm xl:text-base">
-                                <Link to="/" className="text-brand-blue hover:text-brand-teal font-medium smooth-transition whitespace-nowrap">Home</Link>
+                        {/* Right Section (Desktop) */}
+                        <div className="hidden lg:flex flex-col justify-center w-full ml-auto pl-8">
 
-                                <div
-                                    className="relative flex items-center h-20"
-                                    onMouseEnter={() => setIsServicesOpen(true)}
-                                    onMouseLeave={() => setIsServicesOpen(false)}
-                                >
-                                    <Link to="/services" className="text-brand-blue hover:text-brand-teal font-medium smooth-transition flex items-center gap-1 whitespace-nowrap">
-                                        Services Offered
-                                        <svg className={`w-4 h-4 transition-transform duration-200 ${isServicesOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
-                                    </Link>
-
-                                    {/* Dropdown Menu */}
-                                    {isServicesOpen && (
-                                        <div className="absolute top-full left-0 w-64 pt-4">
-                                            <div className="bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden py-2 popup-animation">
-                                                <Link to="/services/thyroid" className="block px-4 py-3 text-sm text-brand-blue hover:bg-brand-light hover:text-brand-teal smooth-transition">Thyroid & Parathyroid Treatments</Link>
-                                                <Link to="/services/vascular" className="block px-4 py-3 text-sm text-brand-blue hover:bg-brand-light hover:text-brand-teal smooth-transition">Vascular Interventions</Link>
-                                                <Link to="/services/stroke" className="block px-4 py-3 text-sm text-brand-blue hover:bg-brand-light hover:text-brand-teal smooth-transition">Stroke & Aneurysm Management</Link>
-                                                <Link to="/services/venous" className="block px-4 py-3 text-sm text-brand-blue hover:bg-brand-light hover:text-brand-teal smooth-transition">Venous Disorders</Link>
-                                                <Link to="/services/fibroid" className="block px-4 py-3 text-sm text-brand-blue hover:bg-brand-light hover:text-brand-teal smooth-transition">Uterine Fibroid Embolization</Link>
-                                                <Link to="/services/prostate" className="block px-4 py-3 text-sm text-brand-blue hover:bg-brand-light hover:text-brand-teal smooth-transition">Prostate Artery Embolization</Link>
-                                            </div>
-                                        </div>
-                                    )}
+                            {/* Top Row: Contact Info & Socials */}
+                            <div className="flex justify-end items-center space-x-6 pb-2 border-b border-gray-100">
+                                <div className="flex items-center gap-2 text-sm text-gray-500 font-medium">
+                                    <svg className="w-4 h-4 text-brand-teal" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+                                    <a href="tel:+919406523513" className="hover:text-brand-teal smooth-transition">+91 94065 23513</a>
                                 </div>
+                                <div className="flex items-center gap-2 text-sm text-gray-500 font-medium border-l border-gray-200 pl-6">
+                                    <svg className="w-4 h-4 text-brand-teal" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                                    <span>Bansal Hospital, Bhopal</span>
+                                </div>
+                                <div className="pl-4 border-l border-gray-200">
+                                    <SocialIcons className="flex items-center space-x-3 [&_svg]:w-4 [&_svg]:h-4 [&_a]:text-gray-400 hover:[&_a]:text-brand-teal transition-colors" />
+                                </div>
+                            </div>
 
-                                <Link to="/patients" className="text-brand-blue hover:text-brand-teal font-medium smooth-transition whitespace-nowrap">Happy Patients</Link>
-                                <Link to="/about" className="text-brand-blue hover:text-brand-teal font-medium smooth-transition whitespace-nowrap">About Us</Link>
-                                <Link to="/contact" className="text-brand-blue hover:text-brand-teal font-medium smooth-transition whitespace-nowrap">Contact Us</Link>
-                            </nav>
+                            {/* Bottom Row: Navigation & CTA */}
+                            <div className="flex justify-end items-center pt-3 mt-0.5 space-x-8">
+                                <nav className="flex space-x-7 items-center text-[15px] font-bold">
+                                    <Link to="/" className="text-brand-dark hover:text-brand-teal smooth-transition whitespace-nowrap">Home</Link>
 
-                            {/* Social Icons */}
-                            <SocialIcons className="flex items-center space-x-3 pl-4 border-l border-gray-200" />
+                                    <div
+                                        className="relative flex items-center h-10 group"
+                                        onMouseEnter={() => setIsServicesOpen(true)}
+                                        onMouseLeave={() => setIsServicesOpen(false)}
+                                    >
+                                        <Link to="/services" className="text-brand-dark hover:text-brand-teal smooth-transition flex items-center gap-1 whitespace-nowrap">
+                                            Services Offered
+                                            <svg className={`w-4 h-4 transition-transform duration-200 ${isServicesOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+                                        </Link>
 
-                            {/* CTA Button */}
-                            <div className="pl-2 xl:pl-4">
-                                <a
-                                    href="https://wa.me/919406523513"
-                                    target="_blank" rel="noopener noreferrer"
-                                    className="bg-brand-blue text-white px-4 xl:px-6 py-2.5 rounded-full font-bold hover:bg-brand-teal smooth-transition shadow-lg hover:shadow-xl text-sm whitespace-nowrap inline-flex items-center"
-                                >
-                                    Book Appointment
-                                </a>
+                                        {/* Dropdown Menu */}
+                                        {isServicesOpen && (
+                                            <div className="absolute top-full left-0 w-64 pt-2">
+                                                <div className="bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden py-2 popup-animation">
+                                                    <Link to="/services/thyroid" className="block px-4 py-3 text-sm text-brand-dark hover:bg-brand-light hover:text-brand-teal smooth-transition">Thyroid & Parathyroid Treatments</Link>
+                                                    <Link to="/services/vascular" className="block px-4 py-3 text-sm text-brand-dark hover:bg-brand-light hover:text-brand-teal smooth-transition">Vascular Interventions</Link>
+                                                    <Link to="/services/stroke" className="block px-4 py-3 text-sm text-brand-dark hover:bg-brand-light hover:text-brand-teal smooth-transition">Stroke & Aneurysm Management</Link>
+                                                    <Link to="/services/venous" className="block px-4 py-3 text-sm text-brand-dark hover:bg-brand-light hover:text-brand-teal smooth-transition">Venous Disorders</Link>
+                                                    <Link to="/services/fibroid" className="block px-4 py-3 text-sm text-brand-dark hover:bg-brand-light hover:text-brand-teal smooth-transition">Uterine Fibroid Embolization</Link>
+                                                    <Link to="/services/prostate" className="block px-4 py-3 text-sm text-brand-dark hover:bg-brand-light hover:text-brand-teal smooth-transition">Prostate Artery Embolization</Link>
+                                                </div>
+                                            </div>
+                                        )}
+                                    </div>
+
+                                    <Link to="/patients" className="text-brand-dark hover:text-brand-teal smooth-transition whitespace-nowrap">Happy Patients</Link>
+                                    <Link to="/about" className="text-brand-dark hover:text-brand-teal smooth-transition whitespace-nowrap">About Us</Link>
+                                    <Link to="/contact" className="text-brand-dark hover:text-brand-teal smooth-transition whitespace-nowrap">Contact Us</Link>
+                                </nav>
+
+                                <div>
+                                    <a
+                                        href="https://wa.me/919406523513"
+                                        target="_blank" rel="noopener noreferrer"
+                                        className="bg-brand-blue text-white px-6 py-2.5 rounded-full font-bold hover:bg-brand-teal smooth-transition shadow-lg hover:shadow-xl text-sm whitespace-nowrap inline-flex items-center gap-2"
+                                    >
+                                        Book Appointment
+                                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -78,9 +94,9 @@ const Layout = () => {
             </header>
 
             {/* RENDER CURRENT PAGE */}
-            <main className="flex-grow pt-20">
+            <main className="flex-grow pt-[104px] lg:pt-[122px]">
                 <Outlet />
-            </main >
+            </main>
 
             {/* FOOTER */}
             <footer className="bg-brand-blue text-white py-16 relative overflow-hidden">
