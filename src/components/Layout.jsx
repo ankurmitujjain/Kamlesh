@@ -25,20 +25,19 @@ const Layout = () => {
                         </Link>
 
                         {/* Navigation & Social Icons Container */}
-                        <div className="hidden md:flex items-center space-x-6">
-                            <nav className="flex space-x-6 items-center relative">
-                                <Link to="/" className="text-brand-blue hover:text-brand-teal font-medium smooth-transition">Home</Link>
+                        <div className="hidden lg:flex items-center space-x-2 xl:space-x-6">
+                            <nav className="flex space-x-4 xl:space-x-6 items-center relative text-sm xl:text-base">
+                                <Link to="/" className="text-brand-blue hover:text-brand-teal font-medium smooth-transition whitespace-nowrap">Home</Link>
 
-                                {/* Services Dropdown */}
                                 <div
-                                    className="relative"
+                                    className="relative flex items-center h-20"
                                     onMouseEnter={() => setIsServicesOpen(true)}
                                     onMouseLeave={() => setIsServicesOpen(false)}
                                 >
-                                    <button className="text-brand-blue hover:text-brand-teal font-medium smooth-transition flex items-center gap-1">
+                                    <Link to="/services" className="text-brand-blue hover:text-brand-teal font-medium smooth-transition flex items-center gap-1 whitespace-nowrap">
                                         Services Offered
                                         <svg className={`w-4 h-4 transition-transform duration-200 ${isServicesOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
-                                    </button>
+                                    </Link>
 
                                     {/* Dropdown Menu */}
                                     {isServicesOpen && (
@@ -55,20 +54,20 @@ const Layout = () => {
                                     )}
                                 </div>
 
-                                <Link to="/patients" className="text-brand-blue hover:text-brand-teal font-medium smooth-transition">Happy Patients</Link>
-                                <Link to="/about" className="text-brand-blue hover:text-brand-teal font-medium smooth-transition">About Us</Link>
-                                <Link to="/contact" className="text-brand-blue hover:text-brand-teal font-medium smooth-transition">Contact Us</Link>
+                                <Link to="/patients" className="text-brand-blue hover:text-brand-teal font-medium smooth-transition whitespace-nowrap">Happy Patients</Link>
+                                <Link to="/about" className="text-brand-blue hover:text-brand-teal font-medium smooth-transition whitespace-nowrap">About Us</Link>
+                                <Link to="/contact" className="text-brand-blue hover:text-brand-teal font-medium smooth-transition whitespace-nowrap">Contact Us</Link>
                             </nav>
 
                             {/* Social Icons */}
                             <SocialIcons className="flex items-center space-x-3 pl-4 border-l border-gray-200" />
 
                             {/* CTA Button */}
-                            <div className="pl-4">
+                            <div className="pl-2 xl:pl-4">
                                 <a
                                     href="https://wa.me/919406523513"
                                     target="_blank" rel="noopener noreferrer"
-                                    className="bg-brand-blue text-white px-6 py-2.5 rounded-full font-bold hover:bg-brand-teal smooth-transition shadow-lg hover:shadow-xl text-sm"
+                                    className="bg-brand-blue text-white px-4 xl:px-6 py-2.5 rounded-full font-bold hover:bg-brand-teal smooth-transition shadow-lg hover:shadow-xl text-sm whitespace-nowrap inline-flex items-center"
                                 >
                                     Book Appointment
                                 </a>

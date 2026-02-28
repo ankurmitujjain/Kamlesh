@@ -106,7 +106,12 @@ const Patients = () => {
                 {/* Google Business Profile Rating Summary */}
                 <div className="mt-8 mb-16 flex flex-col items-center justify-center bg-white p-8 rounded-3xl shadow-sm border border-brand-light max-w-3xl mx-auto">
                     <div className="flex items-center gap-4 mb-4">
-                        <svg className="w-10 h-10 text-brand-blue" fill="currentColor" viewBox="0 0 24 24"><path d="M12.48 10.92v3.28h7.81c-.24 1.84-.85 3.18-1.78 4.15-1.15 1.14-2.98 2.45-6.03 2.45-4.85 0-8.71-3.92-8.71-8.8s3.86-8.8 8.71-8.8c2.61 0 4.6 1.04 6.09 2.46l2.31-2.31C19.33 1.87 16.48.3 12.48.3 5.92.3.94 5.38.94 12s4.98 11.7 11.54 11.7c3.39 0 5.94-1.11 7.84-3.08 1.95-1.93 2.56-4.66 2.56-6.83 0-.58-.05-1.04-.15-1.55h-10.25z" /></svg>
+                        <img
+                            src={`${import.meta.env.BASE_URL}images/dr_kamlesh_portrait.jpg`}
+                            alt="Dr. Kamlesh Talesra"
+                            className="w-16 h-16 rounded-full object-cover border-2 border-brand-light shadow-md"
+                            onError={(e) => { e.target.onerror = null; e.target.src = `${import.meta.env.BASE_URL}images/dr_kamlesh_cropped.jpg` }}
+                        />
                         <div>
                             <p className="text-sm text-gray-500 uppercase font-bold tracking-wider">Verified Business Profile</p>
                             <h3 className="text-xl font-bold text-brand-dark">Dr. Kamlesh Talesra | Interventional Radiologist</h3>

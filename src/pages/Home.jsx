@@ -105,14 +105,15 @@ const Home = () => {
                             {latestVideos.map((video, idx) => (
                                 <div key={idx} className="px-3 pb-8">
                                     <div className="bg-white/5 border border-white/10 rounded-2xl overflow-hidden backdrop-blur-sm p-4 hover:bg-white/10 smooth-transition h-full flex flex-col">
-                                        <div className="rounded-xl overflow-hidden bg-black aspect-video relative shadow-lg ring-1 ring-white/20 mb-4">
-                                            <iframe
-                                                src={`https://www.youtube.com/embed/${video.id}?rel=0&modestbranding=1`}
-                                                title={video.title}
-                                                className="absolute inset-0 w-full h-full border-0"
-                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                                allowFullScreen
-                                            ></iframe>
+                                        <div className="rounded-xl overflow-hidden bg-black aspect-video relative shadow-lg ring-1 ring-white/20 mb-4 group">
+                                            <a href={`https://www.youtube.com/watch?v=${video.id}`} target="_blank" rel="noopener noreferrer" className="block w-full h-full relative">
+                                                <img src={`https://img.youtube.com/vi/${video.id}/hqdefault.jpg`} alt={video.title} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 smooth-transition" />
+                                                <div className="absolute inset-0 flex items-center justify-center">
+                                                    <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(220,38,38,0.6)] group-hover:scale-110 smooth-transition">
+                                                        <svg className="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
+                                                    </div>
+                                                </div>
+                                            </a>
                                         </div>
                                         <h3 className="font-bold text-white text-lg line-clamp-2 mt-auto">{video.title}</h3>
                                     </div>
