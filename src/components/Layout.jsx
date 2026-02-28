@@ -56,8 +56,8 @@ const Layout = () => {
                                 </div>
 
                                 <Link to="/patients" className="text-brand-blue hover:text-brand-teal font-medium smooth-transition">Happy Patients</Link>
-                                <HashLink smooth to="/#about" className="text-brand-blue hover:text-brand-teal font-medium smooth-transition">About Us</HashLink>
-                                <HashLink smooth to="#footer" className="text-brand-blue hover:text-brand-teal font-medium smooth-transition">Contact Us</HashLink>
+                                <Link to="/about" className="text-brand-blue hover:text-brand-teal font-medium smooth-transition">About Us</Link>
+                                <Link to="/contact" className="text-brand-blue hover:text-brand-teal font-medium smooth-transition">Contact Us</Link>
                             </nav>
 
                             {/* Social Icons */}

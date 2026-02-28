@@ -65,12 +65,6 @@ const HeroSlider = () => {
                 ))}
             </Slider>
 
-            {/* Decorative Curvy Bottom Divider */}
-            <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-20 transform translate-y-[2px]">
-                <svg fill="#ffffff" viewBox="0 0 1200 120" preserveAspectRatio="none" className="block w-full h-[50px] md:h-[80px]">
-                    <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.06,155.83,122.28,214.34,120,248.81,118.66,285.92,109.82,321.39,56.44Z" className="shape-fill"></path>
-                </svg>
-            </div>
         </div>
     );
 };
