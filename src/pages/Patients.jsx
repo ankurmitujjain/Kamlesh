@@ -3,10 +3,10 @@ import SEO from '../components/SEO';
 
 const Patients = () => {
     useEffect(() => {
-        // Dynamically insert the SociableKit script when the component mounts
+        // Dynamically insert the Elfsight script when the component mounts
         // This ensures the widget re-initializes correctly when navigating via React Router
         const script = document.createElement("script");
-        script.src = "https://widgets.sociablekit.com/google-reviews/widget.js";
+        script.src = "https://elfsightcdn.com/platform.js";
         script.async = true;
         script.defer = true;
         document.body.appendChild(script);
@@ -37,8 +37,8 @@ const Patients = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <h2 className="text-3xl font-bold text-brand-blue text-center mb-8">Verified Google Reviews</h2>
 
-                {/* Live Google Reviews powered by SociableKit */}
-                <div className="sk-ww-google-reviews" data-embed-id="25658701"></div>
+                {/* Live Google Reviews powered by Elfsight */}
+                <div className="elfsight-app-dba01c1a-00df-4b82-a8c2-d2eddd2e4c22" data-elfsight-app-lazy></div>
 
                 {/* CTA */}
                 <div className="mt-16 text-center bg-white p-12 rounded-[40px] shadow-2xl relative overflow-hidden border border-brand-light">
