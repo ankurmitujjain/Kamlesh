@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Slider from 'react-slick';
 import SEO from '../components/SEO';
@@ -29,12 +29,41 @@ const Home = () => {
         ]
     };
 
-    const latestVideos = [
-        { id: "O22Qh0p4p6s", title: "Non-Surgical Treatment for Uterine Fibroids | Dr. Kamlesh Talesra" },
-        { id: "2s9_D6A8z0E", title: "Varicose Veins Laser Treatment | EVLT Explained" },
-        { id: "M5uH8L1_Gqk", title: "Thyroid Nodule Ablation Procedure Animation" },
-        { id: "V9H9o4v5r2w", title: "What is Interventional Radiology? | Bansal Hospital" }
-    ];
+    const [latestVideos, setLatestVideos] = useState([]);
+    const [isLoadingVideos, setIsLoadingVideos] = useState(true);
+
+    // YouTube Channel ID: UCHpYnN562xLhCRe9jN7V3-g (Dr. Kamlesh Talesra)
+    const channelId = 'UCHpYnN562xLhCRe9jN7V3-g';
+
+    useEffect(() => {
+        // We use rss2json to bypass the lack of a YouTube Data API Key
+        // This public proxy converts YouTube's XML RSS feed into a readable JSON format
+        const fetchVideos = async () => {
+            try {
+                const rssUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`;
+                const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`;
+
+                const response = await fetch(apiUrl);
+                const data = await response.json();
+
+                if (data.status === 'ok') {
+                    // Extract the video IDs and Titles from the feed items
+                    const videos = data.items.slice(0, 4).map(item => {
+                        // The GUID in YouTube RSS is always 'yt:video:VIDEO_ID'
+                        const videoId = item.guid.split(':')[2];
+                        return { id: videoId, title: item.title };
+                    });
+                    setLatestVideos(videos);
+                }
+            } catch (error) {
+                console.error("Error fetching latest YouTube videos:", error);
+            } finally {
+                setIsLoadingVideos(false);
+            }
+        };
+
+        fetchVideos();
+    }, []);
 
     return (
         <>
@@ -98,25 +127,35 @@ const Home = () => {
                     </div>
 
                     <div className="px-4">
-                        <Slider {...videoSettings} className="video-slider">
-                            {latestVideos.map((video, idx) => (
-                                <div key={idx} className="px-3 pb-8">
-                                    <div className="bg-white/5 border border-white/10 rounded-2xl overflow-hidden backdrop-blur-sm p-4 hover:bg-white/10 smooth-transition h-full flex flex-col">
-                                        <div className="rounded-xl overflow-hidden bg-black aspect-video relative shadow-lg ring-1 ring-white/20 mb-4 group">
-                                            <a href={`https://www.youtube.com/watch?v=${video.id}`} target="_blank" rel="noopener noreferrer" className="block w-full h-full relative">
-                                                <img src={`https://img.youtube.com/vi/${video.id}/hqdefault.jpg`} alt={video.title} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 smooth-transition" />
-                                                <div className="absolute inset-0 flex items-center justify-center">
-                                                    <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(220,38,38,0.6)] group-hover:scale-110 smooth-transition">
-                                                        <svg className="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
+                        {isLoadingVideos ? (
+                            <div className="flex justify-center items-center h-48">
+                                <span className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-teal"></span>
+                            </div>
+                        ) : latestVideos.length > 0 ? (
+                            <Slider {...videoSettings} className="video-slider">
+                                {latestVideos.map((video, idx) => (
+                                    <div key={idx} className="px-3 pb-8">
+                                        <div className="bg-white/5 border border-white/10 rounded-2xl overflow-hidden backdrop-blur-sm p-4 hover:bg-white/10 smooth-transition h-full flex flex-col">
+                                            <div className="rounded-xl overflow-hidden bg-black aspect-video relative shadow-lg ring-1 ring-white/20 mb-4 group">
+                                                <a href={`https://www.youtube.com/watch?v=${video.id}`} target="_blank" rel="noopener noreferrer" className="block w-full h-full relative">
+                                                    <img src={`https://img.youtube.com/vi/${video.id}/hqdefault.jpg`} alt={video.title} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 smooth-transition" />
+                                                    <div className="absolute inset-0 flex items-center justify-center">
+                                                        <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(220,38,38,0.6)] group-hover:scale-110 smooth-transition">
+                                                            <svg className="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            </a>
+                                                </a>
+                                            </div>
+                                            <h3 className="font-bold text-white text-lg line-clamp-2 mt-auto">{video.title}</h3>
                                         </div>
-                                        <h3 className="font-bold text-white text-lg line-clamp-2 mt-auto">{video.title}</h3>
                                     </div>
-                                </div>
-                            ))}
-                        </Slider>
+                                ))}
+                            </Slider>
+                        ) : (
+                            <div className="text-center text-gray-400 py-8">
+                                <p>Failed to load latest videos. Please check our channel directly!</p>
+                            </div>
+                        )}
                     </div>
 
                     <div className="mt-12 text-center">
