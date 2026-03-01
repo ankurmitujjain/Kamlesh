@@ -32,8 +32,8 @@ const Home = () => {
     const [latestVideos, setLatestVideos] = useState([]);
     const [isLoadingVideos, setIsLoadingVideos] = useState(true);
 
-    // YouTube Channel ID: UCHpYnN562xLhCRe9jN7V3-g (Dr. Kamlesh Talesra)
-    const channelId = 'UCHpYnN562xLhCRe9jN7V3-g';
+    // YouTube Channel ID: UCihszJrw1nUDQFSg6EtGkPA (Dr. Kamlesh Talesra)
+    const channelId = 'UCihszJrw1nUDQFSg6EtGkPA';
 
     useEffect(() => {
         // We use rss2json to bypass the lack of a YouTube Data API Key
