@@ -80,13 +80,9 @@ const Home = () => {
                         <div className="md:w-1/3 flex justify-center md:justify-end">
                             <div className="relative rounded-[32px] md:rounded-[40px] overflow-hidden shadow-2xl bg-brand-light border-4 border-white w-full max-w-[280px] lg:max-w-[320px]">
                                 <img
-                                    src={`${import.meta.env.BASE_URL}images/dr_kamlesh_portrait.jpg`}
+                                    src={`${import.meta.env.BASE_URL}images/dr_kamlesh_cropped.jpg`}
                                     alt="Dr. Kamlesh Talesra"
                                     className="w-full h-auto object-cover"
-                                    onError={(e) => {
-                                        e.target.onerror = null;
-                                        e.target.src = `${import.meta.env.BASE_URL}images/dr_kamlesh_cropped.jpg`
-                                    }}
                                 />
                                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-brand-blue via-brand-blue/90 to-transparent p-4 md:p-6 text-white text-center">
                                     <h3 className="text-xl font-bold">Dr. Kamlesh Talesra</h3>

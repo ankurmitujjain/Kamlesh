@@ -31,13 +31,9 @@ const AboutUs = () => {
                     <div className="w-full md:w-2/5 bg-brand-light p-8 flex items-center justify-center relative">
                         <div className="absolute top-0 right-0 w-32 h-32 bg-brand-teal/10 rounded-full blur-3xl"></div>
                         <img
-                            src={`${import.meta.env.BASE_URL}images/dr_kamlesh_portrait.jpg`}
+                            src={`${import.meta.env.BASE_URL}images/dr_kamlesh_cropped.jpg`}
                             alt="Dr. Kamlesh Talesra Portrait"
                             className="w-full max-w-sm rounded-[40px] shadow-2xl relative z-10 border-4 border-white object-cover"
-                            onError={(e) => {
-                                e.target.onerror = null;
-                                e.target.src = `${import.meta.env.BASE_URL}images/dr_kamlesh_cropped.jpg`
-                            }}
                         />
                     </div>
 
