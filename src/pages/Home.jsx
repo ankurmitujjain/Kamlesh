@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Slider from 'react-slick';
-import HeroSlider from '../components/HeroSlider';
 import SEO from '../components/SEO';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -43,8 +42,6 @@ const Home = () => {
                 title="Dr. Kamlesh Talesra | Best Interventional Radiologist in Bhopal"
                 description="Get relief with Non-Surgical Treatment for Piles, Varicocele, Thyroid Nodules & Fibroids at Bansal Hospital Bhopal with Dr. Kamlesh Talesra."
             />
-
-            <HeroSlider />
 
             {/* Quick Profile Section */}
             <section className="py-20 bg-white">
