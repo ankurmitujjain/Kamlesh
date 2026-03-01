@@ -75,10 +75,10 @@ const Home = () => {
             {/* Quick Profile Section */}
             <section className="py-20 bg-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex flex-col md:flex-row items-center gap-16">
+                    <div className="flex flex-col md:flex-row items-center justify-center gap-12 lg:gap-16">
                         {/* Image Column */}
-                        <div className="md:w-1/3">
-                            <div className="relative rounded-[40px] overflow-hidden shadow-2xl bg-brand-light border-4 border-white">
+                        <div className="md:w-1/3 flex justify-center md:justify-end">
+                            <div className="relative rounded-[32px] md:rounded-[40px] overflow-hidden shadow-2xl bg-brand-light border-4 border-white w-full max-w-[280px] lg:max-w-[320px]">
                                 <img
                                     src={`${import.meta.env.BASE_URL}images/dr_kamlesh_portrait.jpg`}
                                     alt="Dr. Kamlesh Talesra"
@@ -88,15 +88,15 @@ const Home = () => {
                                         e.target.src = `${import.meta.env.BASE_URL}images/dr_kamlesh_cropped.jpg`
                                     }}
                                 />
-                                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-brand-blue via-brand-blue/90 to-transparent p-6 text-white text-center">
-                                    <h3 className="text-2xl font-bold">Dr. Kamlesh Talesra</h3>
-                                    <p className="text-brand-teal font-medium">Sr. Consultant Radiologist</p>
+                                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-brand-blue via-brand-blue/90 to-transparent p-4 md:p-6 text-white text-center">
+                                    <h3 className="text-xl font-bold">Dr. Kamlesh Talesra</h3>
+                                    <p className="text-brand-teal font-medium text-sm md:text-base">Sr. Consultant Radiologist</p>
                                 </div>
                             </div>
                         </div>
 
                         {/* Text Content Column */}
-                        <div className="md:w-2/3">
+                        <div className="md:w-2/3 max-w-2xl">
                             <span className="text-brand-teal font-bold uppercase tracking-widest text-sm drop-shadow-sm">Meet The Expert</span>
                             <h2 className="mt-3 text-3xl md:text-5xl font-extrabold text-brand-dark leading-tight mb-6">Pioneering Non-Surgical Treatments in Bhopal</h2>
                             <p className="text-xl text-gray-600 leading-relaxed mb-8">
